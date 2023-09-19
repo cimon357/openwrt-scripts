@@ -7,7 +7,7 @@
 # ABOUT
 # ----------------------------------------------------------------------------------
 # Script to handle dynamic dns on this router :)
-#
+# Скрипт для обработки динамического DNS на этом роутере :)
 # AUTHOR
 # ----------------------------------------------------------------------------------
 # Ghozy Arif Fajri <http://github.com/gojigeje>
@@ -24,12 +24,12 @@ start() {
   domain_mini="mini.sejak.tk"
   domain_goji="keren.sejak.tk"
 
-  cek_koneksi
+  cek_koneksi  
 }
 
 cek_koneksi() {
   if eval "ping -c 1 8.8.4.4 -w 2 > /dev/null"; then
-    echo `date +%Y-%m-%d:%H%M`" - Cek koneksi internet.. [OK] "
+    echo `date +%Y-%m-%d:%H%M`" - Проверка подключения к Интернет... [OK] "
 
     ip_mini=$(nslookup $domain_mini | tail -n2 | grep Address | grep -v "192.168.2\|8.8.8.8\|118.98.96.151" | cut -d : -f2 | cut -d " " -f2)
     ip_goji=$(nslookup $domain_goji | tail -n2 | grep Address | grep -v "192.168.2\|8.8.8.8\|118.98.96.151" | cut -d : -f2 | cut -d " " -f2)
@@ -37,7 +37,7 @@ cek_koneksi() {
 
     cek_gojibuntu
   else
-    echo `date +%Y-%m-%d:%H%M`" - EXIT: Nggak konek internet :("
+    echo `date +%Y-%m-%d:%H%M`" - EXIT: Нет подключения к Интернет :("
     exit
   fi 
 }
